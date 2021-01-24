@@ -47,8 +47,8 @@ export default function Weather() {
                 °F
               </span>
             </button>
-            <button>Am/Pm</button>
-          </div>
+            </div>
+            <button className="ampm">Am/Pm</button>
         </Col>
       </Row>
 

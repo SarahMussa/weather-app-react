@@ -22,6 +22,7 @@
 
 .currentLocation {
   display: inline-block;
+  margin: auto 10px;
 }
 
 .currentLocation:hover {
@@ -29,6 +30,11 @@
   text-decoration: none;
   color: #894c9c;
   font-size: large;
+}
+
+.cf {
+  display: inline-block;
+  margin: auto 10px;
 }
 
 .Clink:hover {
@@ -44,18 +50,9 @@
   font-size: large;
 }
 
-.cf {
-  display: inline-block;
-}
-
-.units {
-  font-size: 13px;
-  text-decoration: none;
-  display: inline-block;
-}
-
 .ampm {
   display: inline-block;
+  margin: auto 10px;
 }
 
 .ampm:hover {
