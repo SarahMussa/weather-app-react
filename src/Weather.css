@@ -66,12 +66,13 @@
 }
 
 .city {
-  text-align: center;
-  font-size: 60px;
-  padding: 15px 0;
+  line-height: 40px;
+  padding: 10px 0;
+  margin: 15px auto 0 auto;
   border: 1px solid white;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  line-height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+  color: white;
 }
 
 .searchedCity {
@@ -89,12 +90,13 @@
 }
 
 .currently {
-  text-align: center;
-  font-size: 60px;
-  padding: 15px 0;
+  line-height: 40px;
+  padding: 10px 0;
+  margin: 15px auto 0 auto;
   border: 1px solid white;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  line-height: 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+  color: white;
 }
 
 .currentHour {
