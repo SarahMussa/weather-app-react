@@ -5,10 +5,19 @@ export default function SearchEngine() {
   function Submit(event) {
     event.preventDefault();
   }
-  return (
+  function ChangeCity(event) {
+      setCity(event.target.value);
+  }
+  let form =(
     <form onSubmit={Submit} className="searchCity">
       <input type="text" placeholder="Search city" />
       <input type="submit" value="🔎" />
     </form>
+  )  
+  return (
+    <div>
+        {form}
+        {city}
+    </div>
   );
 }

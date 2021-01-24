@@ -39,15 +39,14 @@ export default function Weather() {
           </button>
           <div className="cf">
             <button className="units">
-              <a href="/" className="Clink">
-                °C
-              </a>{" "}
+              <span className="Clink">°C</span>
+              {" "}
               |
-              <a href="/" className="Flink">
+              <span className="Flink">
                 °F
-              </a>
+              </span>
             </button>
-            <button className="ampm">Am/Pm</button>
+            <button>Am/Pm</button>
           </div>
         </Col>
       </Row>
