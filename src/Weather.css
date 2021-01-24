@@ -1,0 +1,157 @@
+.row {
+  margin: 10px 5px;
+  border-radius: 10px;
+}
+
+.left {
+  padding: 10px auto;
+  border-radius: 10px;
+}
+
+.right {
+  margin: 0px auto;
+  border-radius: 10px;
+}
+
+.searchCity {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+}
+
+.currentLocation {
+  display: inline-block;
+}
+
+.currentLocation:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #894c9c;
+  font-size: large;
+}
+
+.Clink:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #894c9c;
+  font-size: large;
+}
+.Flink:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #894c9c;
+  font-size: large;
+}
+
+.cf {
+  display: inline-block;
+}
+
+.units {
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ampm {
+  display: inline-block;
+}
+
+.ampm:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #894c9c;
+  font-size: 15px;
+}
+
+.city {
+  text-align: center;
+  font-size: 60px;
+  padding: 15px 0;
+  border: 1px solid white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  line-height: 25px;
+}
+
+.searchedCity {
+  margin: 15px auto;
+}
+
+.currentDate {
+  margin: 15px auto;
+}
+
+.dailyIcon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+}
+
+.currently {
+  text-align: center;
+  font-size: 60px;
+  padding: 15px 0;
+  border: 1px solid white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  line-height: 25px;
+}
+
+.currentHour {
+  font-size: 30px;
+  padding: 15px 0;
+}
+
+.iconNow {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+}
+
+.temperature {
+  font-size: 17px;
+}
+
+.temperature .today {
+  font-size: 35px;
+}
+
+.hourTemp {
+  line-height: 40px;
+  padding: 10px 0;
+  margin: 15px auto 0 auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.Forecast {
+  border: 1px solid white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: auto auto;
+  line-height: 41px;
+  font-size: 18px;
+}
+
+.forecastIcons {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 10px;
+}
+
+.CodedBy {
+  display: block;
+  margin: 0 auto;
+}
+
+.CodedBy :hover {
+  text-decoration: none;
+  font-size: large;
+  color: white;
+}
