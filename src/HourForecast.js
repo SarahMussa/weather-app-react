@@ -11,7 +11,7 @@ export default function HourForecast() {
   };
   return (
     <div className="HourForecast">
-      <Row className="hourTemp information">
+      <Row>
         <Col>
           <p>Morning</p>
           <p className="temperature">{Data.morning}°</p>

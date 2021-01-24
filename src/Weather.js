@@ -4,8 +4,7 @@ import { Container, Row, Col } from 'react-grid-system';
 import "./Weather.css";
 import SearchEngine from "./SearchEngine";
 import HourForecast from "./HourForecast";
-
-
+import Forecast from "./Forecast";
 
 
 export default function Weather() {
@@ -96,14 +95,11 @@ export default function Weather() {
               <p>UV Index {Data.uvi}</p>
             </Col>
           </Row>
-           <div className="HourForecast">
-              <HourForecast />
-            </div>
         </Col>
 
         <Col className="right">
-          <div className="forecast">
-          </div>
+            <HourForecast />
+            <Forecast />
         </Col>
       </Row>
     </Container>
