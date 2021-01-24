@@ -3,6 +3,8 @@ import { Container, Row, Col } from 'react-grid-system';
 
 import "./Weather.css";
 import SearchEngine from "./SearchEngine";
+import HourForecast from "./HourForecast";
+
 
 
 
@@ -93,9 +95,10 @@ export default function Weather() {
               <p>Humidity {Data.humidity} %</p>
               <p>UV Index {Data.uvi}</p>
             </Col>
-            <div className="HourForecast">
-            </div>
           </Row>
+           <div className="HourForecast">
+              <HourForecast />
+            </div>
         </Col>
 
         <Col className="right">
