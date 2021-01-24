@@ -22,6 +22,11 @@ span {
   color: #ffffff;
 }
 
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 h3 {
   margin: 5px auto;
 }
