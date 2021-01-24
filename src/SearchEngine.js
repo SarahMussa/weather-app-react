@@ -17,6 +17,7 @@ export default function SearchEngine() {
   return (
     <div>
         {form}
+        {city}
     </div>
   );
 }
