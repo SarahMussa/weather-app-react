@@ -10,7 +10,7 @@ export default function SearchEngine() {
   }
   let form =(
     <form onSubmit={Submit} className="searchCity">
-      <input type="text" placeholder="Search city" />
+      <input type="search" placeholder="Search city" onChange={ChangeCity} />
       <input type="submit" value="🔎" />
     </form>
   )  
