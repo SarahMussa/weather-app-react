@@ -1,6 +1,9 @@
 import React from "react";
-import "./Weather.css";
 import { Container, Row, Col } from 'react-grid-system';
+
+import "./Weather.css";
+import SearchEngine from "./SearchEngine";
+
 
 
 export default function Weather() {
@@ -25,6 +28,7 @@ export default function Weather() {
       <br />
       <Row>
         <Col>
+          <SearchEngine />
         </Col>
         <Col>
           <button className="currentLocation">
