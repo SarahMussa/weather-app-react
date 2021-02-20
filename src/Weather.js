@@ -1,30 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from 'react-grid-system';
 
 import "./Weather.css";
 import SearchEngine from "./SearchEngine";
 import HourForecast from "./HourForecast";
 import Forecast from "./Forecast";
+import axios from "axios";
 
 
 export default function Weather() {
-  let Data = {
-    city: "Lisbon",
-    temp: "17",
-    tempMax: 20,
-    tempMin: 15,
+  const [Ready, setReady]=useState(false);
+  const [Data, setData]=useState({});
+
+  function handleResponse(response){
+    console.log(response.data)
+    setData({
+    city: response.data.main.name,
+    temp: response.data.main.temp,
+    tempMax: response.data.main.temp_max,
+    tempMin: response.data.main.temp_min,
+    feelslike: response.data.main.feels_like,
     date: "Sunday, January 3",
     currentHour: "12:00",
-    description: "Sunny",
-    icon: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-    humidity: 80,
-    wind: 10,
+    description: response.data.weather[0].description,
+    icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+    humidity: response.data.main.humidity,
+    wind: response.data.wind.speed,
     uvi: "2 of 10",
     sunrise: "08:00",
     sunset: "20:00"
-  };
 
-  return (
+    })
+    setReady (true);
+  }
+
+  
+
+  if (Ready){
+return (
     <Container>
       <br />
       <Row>
@@ -66,7 +79,7 @@ export default function Weather() {
                 <img src={Data.icon} alt="sunny" className="dailyIcon" />
               </p>
               <h3 className="temperature today">
-                <strong> {Data.tempMax}° </strong>/{Data.tempMin}°
+                <strong> {Math.round(Data.tempMax)}° </strong>/{Math.round(Data.tempMin)}°
                 <span className="temperatureUnit">C</span>
               </h3>
             </Col>
@@ -76,21 +89,21 @@ export default function Weather() {
             <Col>
               <p className="currentHour">{Data.currentHour}</p>
               <br />
-              <p>{Data.description}</p>
-              <img src={Data.icon} alt="sunny" className="iconNow" />
+              <p className="text-capitalize">{Data.description}</p>
+              <img src={Data.icon} alt={Data.description} className="iconNow" />
             </Col>
             <Col>
               <h3>
                 <strong className="temperature today">
-                  {Data.temp}
+                  {Math.round(Data.temp)}
                   <span className="temperatureUnit">° C</span>
                 </strong>
               </h3>
               <p>
-                Feels like <strong>{Data.temp}</strong>°
+                Feels like <strong>{(Math.round(Data.feelslike))}</strong>°
               </p>
               <br />
-              <p>Wind {Data.wind} km/h</p>
+              <p>Wind {Math.round(Data.wind)} km/h</p>
               <p>Humidity {Data.humidity} %</p>
               <p>UV Index {Data.uvi}</p>
             </Col>
@@ -104,4 +117,12 @@ export default function Weather() {
       </Row>
     </Container>
   );
-}
+  }else{
+    const apiKey ="8430d97c754240b31c1a7afacb15800d";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`
+    axios.get(apiUrl).then(handleResponse);
+
+    return("Loading...");
+  }
+  }
