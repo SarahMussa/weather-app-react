@@ -8,6 +8,7 @@ import Forecast from "./Forecast";
 import CurrentDate from "./Date/CurrentDate";
 import DaySunrise from "./Date/DaySunrise";
 import DaySunset from "./Date/DaySunset";
+import CurrentHour from "./Date/CurrentHour";
 
 import axios from "axios";
 
@@ -27,7 +28,7 @@ export default function Weather() {
     date: new Date(response.data.dt * 1000),
     sunrise: new Date(response.data.sys.sunrise * 1000),
     sunset: new Date(response.data.sys.sunset * 1000),
-    currentHour: "12:00",
+    hour: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
     icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     humidity: response.data.main.humidity,
@@ -91,7 +92,7 @@ return (
 
           <Row className="currently">
             <Col>
-              <p className="currentHour">{Data.currentHour}</p>
+              <p className="currentHour"><CurrentHour hour={Data.hour} /></p>
               <br />
               <p className="text-capitalize">{Data.description}</p>
               <img src={Data.icon} alt={Data.description} className="iconNow" />
