@@ -5,7 +5,9 @@ import "./Weather.css";
 import SearchEngine from "./SearchEngine";
 import HourForecast from "./HourForecast";
 import Forecast from "./Forecast";
-import Date from "./Date";
+import CurrentDate from "./Date/CurrentDate";
+import DaySunrise from "./Date/DaySunrise";
+import DaySunset from "./Date/DaySunset";
 
 import axios from "axios";
 
@@ -23,14 +25,14 @@ export default function Weather() {
     tempMin: response.data.main.temp_min,
     feelslike: response.data.main.feels_like,
     date: new Date(response.data.dt * 1000),
+    sunrise: new Date(response.data.sys.sunrise * 1000),
+    sunset: new Date(response.data.sys.sunset * 1000),
     currentHour: "12:00",
     description: response.data.weather[0].description,
     icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     humidity: response.data.main.humidity,
     wind: response.data.wind.speed,
     uvi: "2 of 10",
-    sunrise: "08:00",
-    sunset: "20:00"
 
     })
     setReady (true);
@@ -72,9 +74,9 @@ return (
           <Row className="city">
             <Col>
               <h1 className="searchedCity">{Data.city}</h1>
-              <p className="currentDate"><Date date={Data.date} /></p>
-              <p>Sunrise - {Data.sunrise}</p>
-              <p>Sunset - {Data.sunset}</p>
+              <p className="currentDate"><CurrentDate date={Data.date} /></p>
+              <p>Sunrise - <DaySunrise sunrise={Data.sunrise} /></p>
+              <p>Sunset - <DaySunset sunset={Data.sunset} /></p>
             </Col>
             <Col>
               <p>

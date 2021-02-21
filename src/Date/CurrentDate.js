@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Date(props){
+export default function CurrentDate(props){
 
   let weekDays = [
     "Sunday",
