@@ -5,6 +5,8 @@ import "./Weather.css";
 import SearchEngine from "./SearchEngine";
 import HourForecast from "./HourForecast";
 import Forecast from "./Forecast";
+import Date from "./Date";
+
 import axios from "axios";
 
 
@@ -20,7 +22,7 @@ export default function Weather() {
     tempMax: response.data.main.temp_max,
     tempMin: response.data.main.temp_min,
     feelslike: response.data.main.feels_like,
-    date: "Sunday, January 3",
+    date: new Date(response.data.dt * 1000),
     currentHour: "12:00",
     description: response.data.weather[0].description,
     icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
@@ -70,7 +72,7 @@ return (
           <Row className="city">
             <Col>
               <h1 className="searchedCity">{Data.city}</h1>
-              <p className="currentDate">{Data.date}</p>
+              <p className="currentDate"><Date date={Data.date} /></p>
               <p>Sunrise - {Data.sunrise}</p>
               <p>Sunset - {Data.sunset}</p>
             </Col>
