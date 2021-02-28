@@ -20,7 +20,7 @@ export default function Weather(props) {
   function handleResponse(response){
     console.log(response.data)
     setData({
-    city: response.data.main.name,
+    city: response.data.name,
     temp: response.data.main.temp,
     tempMax: response.data.main.temp_max,
     tempMin: response.data.main.temp_min,
