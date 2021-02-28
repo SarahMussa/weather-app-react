@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-grid-system";
-import "./Weather.css";
+import "./Forecast.css";
 import axios from "axios";
 
 

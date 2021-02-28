@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-grid-system";
-import "./Weather.css";
+import "./Forecast.css";
 
 export default function Forecast() {
   let Data = {

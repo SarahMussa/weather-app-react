@@ -1,5 +1,5 @@
 import React from "react";
-import "./Weather.css";
+import "./Footer.css";
 
 export default function CodedBy() {
   return (

@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import { Container, Row, Col } from 'react-grid-system';
 
 import "./Weather.css";
-import SearchEngine from "./SearchEngine";
-import HourForecast from "./HourForecast";
-import Forecast from "./Forecast";
-import CurrentDate from "./Date/CurrentDate";
-import DaySunrise from "./Date/DaySunrise";
-import DaySunset from "./Date/DaySunset";
-import CurrentHour from "./Date/CurrentHour";
+
+import HourForecast from "./Forecast/HourForecast";
+import Forecast from "./Forecast/Forecast";
+import WeatherInfo from "./WeatherFiles/WeatherInfo";
+import Buttons from "./WeatherFiles/Buttons";
 
 import axios from "axios";
 
 
-export default function Weather() {
+
+export default function Weather(props) {
   const [Ready, setReady]=useState(false);
   const [Data, setData]=useState({});
+  let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response){
     console.log(response.data)
@@ -39,6 +39,25 @@ export default function Weather() {
     setReady (true);
   }
 
+  //Search city
+  function searchCity(){
+    const apiKey ="8430d97c754240b31c1a7afacb15800d";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  //Search for a city - API call
+  function Submit(event) {
+    event.preventDefault();
+    searchCity();
+  }
+
+  //Change city
+  function ChangeCity(event) {
+      setCity(event.target.value);
+      //Update the city
+  }
   
 
   if (Ready){
@@ -47,72 +66,19 @@ return (
       <br />
       <Row>
         <Col>
-          <SearchEngine />
+          <form onSubmit={Submit} className="searchCity">
+            <input type="search" placeholder="Search city" onChange={ChangeCity} />
+            <input type="submit" value="🔎" />
+          </form>
         </Col>
         <Col>
-          <button className="currentLocation">
-            <span aria-label="emoji" role="img">
-              📍{" "}
-            </span>{" "}
-            Current Location
-          </button>
-          <div className="cf">
-            <button className="units">
-              <span className="Clink">°C</span>
-              {" "}
-              |
-              <span className="Flink">
-                °F
-              </span>
-            </button>
-            </div>
-            <button className="ampm">Am/Pm</button>
+          <Buttons />
         </Col>
       </Row>
 
       <Row className="app">
         <Col className="left">
-          <Row className="city">
-            <Col>
-              <h1 className="searchedCity">{Data.city}</h1>
-              <p className="currentDate"><CurrentDate date={Data.date} /></p>
-              <p>Sunrise - <DaySunrise sunrise={Data.sunrise} /></p>
-              <p>Sunset - <DaySunset sunset={Data.sunset} /></p>
-            </Col>
-            <Col>
-              <p>
-                <img src={Data.icon} alt="sunny" className="dailyIcon" />
-              </p>
-              <h3 className="temperature today">
-                <strong> {Math.round(Data.tempMax)}° </strong>/{Math.round(Data.tempMin)}°
-                <span className="temperatureUnit">C</span>
-              </h3>
-            </Col>
-          </Row>
-
-          <Row className="currently">
-            <Col>
-              <p className="currentHour"><CurrentHour hour={Data.hour} /></p>
-              <br />
-              <p className="text-capitalize">{Data.description}</p>
-              <img src={Data.icon} alt={Data.description} className="iconNow" />
-            </Col>
-            <Col>
-              <h3>
-                <strong className="temperature today">
-                  {Math.round(Data.temp)}
-                  <span className="temperatureUnit">° C</span>
-                </strong>
-              </h3>
-              <p>
-                Feels like <strong>{(Math.round(Data.feelslike))}</strong>°
-              </p>
-              <br />
-              <p>Wind {Math.round(Data.wind)} km/h</p>
-              <p>Humidity {Data.humidity} %</p>
-              <p>UV Index {Data.uvi}</p>
-            </Col>
-          </Row>
+          <WeatherInfo data={Data} />
         </Col>
 
         <Col className="right">
@@ -123,11 +89,7 @@ return (
     </Container>
   );
   }else{
-    const apiKey ="8430d97c754240b31c1a7afacb15800d";
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`
-    axios.get(apiUrl).then(handleResponse);
-
+    searchCity();
     return("Loading...");
   }
   }

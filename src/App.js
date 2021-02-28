@@ -1,13 +1,13 @@
 import './App.css';
 import Weather from "./Weather.js"
-import CodedBy from "./CodedBy"
+import CodedBy from "./Footer/CodedBy"
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Weather />
+        <Weather defaultCity="Lisbon" />
         <br />
         <CodedBy />
       </header>
