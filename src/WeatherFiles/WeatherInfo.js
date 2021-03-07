@@ -14,15 +14,15 @@ export default function WeatherInfo (props){
             <Col>
               <h1 className="searchedCity">{props.data.city}</h1>
               <p className="currentDate"><CurrentDate date={props.data.date} /></p>
-              <p>Sunrise - <DaySunrise sunrise={props.data.sunrise} /></p>
-              <p>Sunset - <DaySunset sunset={props.data.sunset} /></p>
+              <p><DaySunrise sunrise={props.data.sunrise} /></p>
+              <p><DaySunset sunset={props.data.sunset} /></p>
             </Col>
             <Col>
               <p>
                 <img src={props.data.icon} alt="sunny" className="dailyIcon" />
               </p>
               <h3 className="temperature today">
-                <strong> {Math.round(props.data.tempMax)}° </strong>/{Math.round(props.data.tempMin)}°
+                <strong> {Math.round(props.data.tempMax)}° </strong>/ {Math.round(props.data.tempMin)}°
                 <span className="temperatureUnit">C</span>
               </h3>
             </Col>

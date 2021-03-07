@@ -14,7 +14,7 @@ export default function DaySunrise(props){
       hours = `0${hours}`;
     }
 
-    return (<div>{hours}:{minutes}h</div>);
+    return (<div>Sunrise - {hours}:{minutes}h</div>);
   } else {
     return props.sunrise.toLocaleString("en-US", {
       hour: "numeric",
