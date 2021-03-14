@@ -80,10 +80,11 @@
   margin: 15px auto;
 }
 
-.dailyIcon {
+.dailyIcon canvas {
   width: 90px;
   height: 90px;
-  margin: 0 auto;
+  margin-top: 10px;
+  margin:auto;
 }
 
 .currently {

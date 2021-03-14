@@ -5,6 +5,7 @@ import CurrentDate from "../Date/CurrentDate";
 import DaySunrise from "../Date/DaySunrise";
 import DaySunset from "../Date/DaySunset";
 import CurrentHour from "../Date/CurrentHour";
+import WeatherIcon from "./WeatherIcon"
 
 export default function WeatherInfo (props){
 
@@ -19,7 +20,7 @@ export default function WeatherInfo (props){
             </Col>
             <Col>
               <p>
-                <img src={props.data.icon} alt="sunny" className="dailyIcon" />
+                <WeatherIcon code={props.data.icon} alt={props.data.description} />
               </p>
               <h3 className="temperature today">
                 <strong> {Math.round(props.data.tempMax)}° </strong>/ {Math.round(props.data.tempMin)}°
@@ -33,7 +34,7 @@ export default function WeatherInfo (props){
               <p className="currentHour"><CurrentHour hour={props.data.hour} /></p>
               <br />
               <p className="text-capitalize">{props.data.description}</p>
-              <img src={props.data.icon} alt={props.data.description} className="iconNow" />
+              <WeatherIcon code={props.data.icon} />
             </Col>
             <Col>
               <h3>

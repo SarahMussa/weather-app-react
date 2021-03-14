@@ -3,10 +3,10 @@ import { Container, Row, Col } from 'react-grid-system';
 
 import "./Weather.css";
 
-import HourForecast from "./Forecast/HourForecast";
-import Forecast from "./Forecast/Forecast";
-import WeatherInfo from "./WeatherFiles/WeatherInfo";
-import Buttons from "./WeatherFiles/Buttons";
+import HourForecast from "../Forecast/HourForecast";
+import Forecast from "../Forecast/Forecast";
+import WeatherInfo from "./WeatherInfo";
+import Buttons from "./Buttons";
 
 import axios from "axios";
 
@@ -30,7 +30,7 @@ export default function Weather(props) {
     sunset: new Date(response.data.sys.sunset * 1000),
     hour: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
-    icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+    icon: response.data.weather[0].icon,
     humidity: response.data.main.humidity,
     wind: response.data.wind.speed,
     uvi: "2 of 10",

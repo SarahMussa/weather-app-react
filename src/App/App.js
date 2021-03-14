@@ -1,6 +1,6 @@
 import './App.css';
-import Weather from "./Weather.js"
-import CodedBy from "./Footer/CodedBy"
+import Weather from "../WeatherFiles/Weather.js"
+import CodedBy from "../Footer/CodedBy"
 
 
 function App() {
