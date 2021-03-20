@@ -5,8 +5,7 @@ body {
 
 h1,
 h3,
-p,
-i {
+p{
   color: white;
 }
 
@@ -19,8 +18,8 @@ h3 {
 }
 
 a {
-  color: #ffffff;
   text-decoration: none;
+  color: white;
 }
 
 h3 {
@@ -33,19 +32,13 @@ p {
   margin: 0 auto;
 }
 
-i {
-  font-size: 35px;
-  text-align: center;
-}
-
 button {
-  color: #894c9c;
+  color:white;
   font-size: 13px;
   display: block;
   margin: 0 auto;
   padding: 5px 10px;
   border: 0 solid white;
-  background: white;
   border-radius: 4px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }

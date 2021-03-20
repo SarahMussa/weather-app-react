@@ -20,18 +20,6 @@
   font-family: "Work Sans", sans-serif;
 }
 
-.currentLocation {
-  display: inline-block;
-  margin: auto 10px;
-}
-
-.currentLocation:hover {
-  cursor: pointer;
-  text-decoration: none;
-  color: #894c9c;
-  font-size: large;
-}
-
 .cf {
   display: inline-block;
   margin: auto 10px;
@@ -40,26 +28,26 @@
 .Clink:hover {
   cursor: pointer;
   text-decoration: none;
-  color: #894c9c;
-  font-size: large;
 }
 .Flink:hover {
   cursor: pointer;
   text-decoration: none;
-  color: #894c9c;
-  font-size: large;
 }
 
-.ampm {
-  display: inline-block;
-  margin: auto 10px;
+.temperature {
+  font-size: 17px;
 }
 
-.ampm:hover {
-  cursor: pointer;
-  text-decoration: none;
-  color: #894c9c;
-  font-size: 15px;
+.today {
+  font-size: 30px;
+}
+
+.today .Clink{
+  font-size: 17px;
+}
+
+.today .Flink{
+  font-size: 17px;
 }
 
 .city {
@@ -108,10 +96,3 @@
   margin: 0 auto;
 }
 
-.temperature {
-  font-size: 17px;
-}
-
-.temperature .today {
-  font-size: 35px;
-}

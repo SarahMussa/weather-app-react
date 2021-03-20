@@ -3,10 +3,8 @@ import { Container, Row, Col } from 'react-grid-system';
 
 import "./Weather.css";
 
-import HourForecast from "../Forecast/HourForecast";
 import Forecast from "../Forecast/Forecast";
 import WeatherInfo from "./WeatherInfo";
-import Buttons from "./Buttons";
 
 import axios from "axios";
 
@@ -71,9 +69,6 @@ return (
             <input type="submit" value="🔎" />
           </form>
         </Col>
-        <Col>
-          <Buttons />
-        </Col>
       </Row>
 
       <Row className="app">
@@ -82,7 +77,6 @@ return (
         </Col>
 
         <Col className="right">
-            <HourForecast />
             <Forecast />
         </Col>
       </Row>
