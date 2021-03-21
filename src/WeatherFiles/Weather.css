@@ -96,3 +96,6 @@
   margin: 0 auto;
 }
 
+.description{
+  text-transform: capitalize;
+}

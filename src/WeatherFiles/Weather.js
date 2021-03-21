@@ -12,11 +12,11 @@ import axios from "axios";
 
 export default function Weather(props) {
   const [Ready, setReady]=useState(false);
-  const [Data, setData]=useState({});
+  const [Data, setData]=useState(null);
   let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response){
-    console.log(response.data)
+    //console.log(response.data);
     setData({
     city: response.data.name,
     temp: response.data.main.temp,
@@ -31,7 +31,8 @@ export default function Weather(props) {
     icon: response.data.weather[0].icon,
     humidity: response.data.main.humidity,
     wind: response.data.wind.speed,
-    uvi: "2 of 10",
+    lat: response.data.coord.lat,
+    lon: response.data.coord.lon
 
     })
     setReady (true);
@@ -77,7 +78,7 @@ return (
         </Col>
 
         <Col className="right">
-            <Forecast />
+            <Forecast lat={Data.lat} lon={Data.lon} />
         </Col>
       </Row>
     </Container>

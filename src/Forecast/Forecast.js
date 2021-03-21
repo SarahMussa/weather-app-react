@@ -1,114 +1,44 @@
-import React from "react";
-import { Col, Row } from "react-grid-system";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Forecast.css";
+import ForecastInfo from "./ForecastInfo";
+import HourForecast from "./HourForecast"
 
-export default function Forecast() {
-  let Data = {
-    temp: "17",
-    tempMax: 20,
-    tempMin: 15,
-    icon: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-  };
+export default function Forecast(props) {
+  const [loaded, setLoaded]=useState(false);
+  const [forecast, setForecast]=useState(null);
+
+  function handleForecastResponse (response){
+    //console.log(response.data);
+    setForecast(response.data);
+    
+    setLoaded(true);
+  }
+ 
+
+  if(loaded){
+    console.log(forecast)
   return (
+    <div>
     <div className="Forecast">
-      <Row>
-        <Col md={5}>Monday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5}>Tuesday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5}>Wednesday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5}>Thursday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5}>Friday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5}>Saturday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5}>Sunday</Col>
-        <Col md={4}>
-          <strong className="forecast-max">{Data.tempMax}°</strong>/
-          <span className="forecast-min">{Data.tempMin}</span>°
-        </Col>
-        <Col md={3}>
-          <img
-            src={Data.icon}
-            alt="Temperature icon"
-            className="forecastIcons"
-          />
-        </Col>
-      </Row>
+      <HourForecast data={forecast.daily[0].temp} />
     </div>
-  );
-}
+    <div className="Forecast">
+      <ForecastInfo data={forecast.daily[1]} />
+      <ForecastInfo data={forecast.daily[2]} />
+      <ForecastInfo data={forecast.daily[3]} />
+      <ForecastInfo data={forecast.daily[4]} />
+      <ForecastInfo data={forecast.daily[5]} />
+      <ForecastInfo data={forecast.daily[6]} />
+      <ForecastInfo data={forecast.daily[7]} />
+    </div>
+    </div>
+  );  
+  } else {
+    const apiKey ="8430d97c754240b31c1a7afacb15800d";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&appid=${apiKey}&units=${units}`
+    axios.get(apiUrl).then(handleForecastResponse);
+    return null;
+  }
+  }

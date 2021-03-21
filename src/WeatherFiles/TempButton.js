@@ -26,6 +26,12 @@ if(unit === "celsius"){
                     </span>
                 </strong>
             </h3>
+        {/*
+            <p>
+                Feels like <strong>{(Math.round(props.data.feelslike))}</strong>°
+            </p>
+        */}
+
         </div>
     );
     }else{

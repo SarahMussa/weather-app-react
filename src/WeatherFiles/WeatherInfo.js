@@ -27,7 +27,7 @@ export default function WeatherInfo (props){
               </Col>
 
               <Col>
-                  <p className="text-capitalize">{props.data.description}</p>
+                  <p className="description">{props.data.description}</p>
                   <WeatherIcon code={props.data.icon} alt={props.data.description} />
                   <TempButton celsius={props.data.temp}/>
 {/*
@@ -46,7 +46,6 @@ export default function WeatherInfo (props){
               <Col>
                 <p>Wind {Math.round(props.data.wind)} km/h</p>
                 <p>Humidity {props.data.humidity} %</p>
-                <p>UV Index {props.data.uvi}</p>
               </Col>
             </Row>
         </div>
