@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from 'react-grid-system';
+import { Row, Col } from 'react-grid-system';
 
 import CurrentDate from "../Date/CurrentDate";
 import DaySunrise from "../Date/DaySunrise";
